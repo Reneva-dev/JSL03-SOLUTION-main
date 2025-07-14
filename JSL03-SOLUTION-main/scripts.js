@@ -100,3 +100,17 @@ function closeModal() {
   modal.style.display = "none";
   currentTaskDiv = null;
 }
+
+function saveTask() {
+  if (!currentTaskDiv) return;
+
+  currentTaskDiv.textContent = modalTitle.value;
+  // If needed, move taskDiv to another column based on modalStatus.value
+  const currentColumn = currentTaskDiv.closest(".column-div").dataset.status;
+  if (currentColumn !== modalStatus.value) {
+    const newColumn = document.querySelector(`.column-div[data-status="${modalStatus.value}"] .tasks-container`);
+    newColumn.appendChild(currentTaskDiv);
+  }
+
+  closeModal();
+}
