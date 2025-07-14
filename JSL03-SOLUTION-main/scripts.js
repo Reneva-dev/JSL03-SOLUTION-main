@@ -78,6 +78,44 @@ const saveTaskBtn = document.getElementById("saveTask");
 
 let currentTaskDiv = null;
 
+function renderTasks() {
+  // Clear all task containers first
+  document.querySelectorAll(".tasks-container").forEach(container => {
+    container.innerHTML = "";
+  });
+
+  // Loop over initialTasks and create a task div for each
+  initialTasks.forEach(task => {
+    const taskDiv = document.createElement("div");
+    taskDiv.classList.add("task-div");
+    taskDiv.textContent = task.title;
+
+    // Store the task ID on the element for reference
+    taskDiv.dataset.taskId = task.id;
+
+    // Add click listener to open modal for this task
+    taskDiv.addEventListener("click", () => openModal(taskDiv));
+
+    // Append to the correct column based on task.status
+    const column = document.querySelector(`.column-div[data-status="${task.status}"] .tasks-container`);
+    if (column) {
+      column.appendChild(taskDiv);
+    }
+  });
+
+  updateColumnCounts();
+}
+
+function updateColumnCounts() {
+  const statuses = ["todo", "doing", "done"];
+  statuses.forEach(status => {
+    const count = initialTasks.filter(task => task.status === status).length;
+    const header = document.querySelector(`.column-div[data-status="${status}"] .columnHeader`);
+    if (header) {
+      header.textContent = `${status.toUpperCase()} (${count})`;
+    }
+  });
+}
 
 
 function openModal(taskDiv) {
