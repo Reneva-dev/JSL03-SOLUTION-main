@@ -121,13 +121,18 @@ function updateColumnCounts() {
 function openModal(taskDiv) {
   currentTaskDiv = taskDiv;
 
-  // Use placeholder content for now since task objects aren't bound
-  modalTitle.value = taskDiv.textContent.trim(); // Just demo: treat as title
-  modalDescription.value = "Edit description here...";
-  modalStatus.value = taskDiv.closest(".column-div").dataset.status;
+  const taskId = parseInt(taskDiv.dataset.taskId);
+  const task = initialTasks.find(t => t.id === taskId);
+
+  if (!task) return;
+
+  modalTitle.value = task.title;
+  modalDescription.value = task.description;
+  modalStatus.value = task.status;
 
   modal.style.display = "block";
 }
+
 
 function closeModal() {
   modal.style.display = "none";
