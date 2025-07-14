@@ -142,16 +142,22 @@ function closeModal() {
 function saveTask() {
   if (!currentTaskDiv) return;
 
-  currentTaskDiv.textContent = modalTitle.value;
-  // If needed, move taskDiv to another column based on modalStatus.value
-  const currentColumn = currentTaskDiv.closest(".column-div").dataset.status;
-  if (currentColumn !== modalStatus.value) {
-    const newColumn = document.querySelector(`.column-div[data-status="${modalStatus.value}"] .tasks-container`);
-    newColumn.appendChild(currentTaskDiv);
-  }
+  const taskId = parseInt(currentTaskDiv.dataset.taskId);
+  const task = initialTasks.find(t => t.id === taskId);
+
+  if (!task) return;
+
+  // Update the task data from modal inputs
+  task.title = modalTitle.value.trim();
+  task.description = modalDescription.value.trim();
+  task.status = modalStatus.value;
+
+  // Re-render tasks to update the DOM based on updated data
+  renderTasks();
 
   closeModal();
 }
+
 
 // Events
 closeModalBtn.addEventListener("click", closeModal);
