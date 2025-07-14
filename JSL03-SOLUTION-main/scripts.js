@@ -77,3 +77,13 @@ const modalStatus = document.getElementById("modalStatus");
 const saveTaskBtn = document.getElementById("saveTask");
 
 let currentTaskDiv = null;
+
+// Attach click events to all existing task divs
+document.querySelectorAll(".task-div").forEach((div) => {
+  div.addEventListener("click", () => {
+    openModal(div);
+  });
+});
+
+function openModal(taskDiv) {
+  currentTaskDiv = taskDiv;
