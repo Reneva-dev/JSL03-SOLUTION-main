@@ -75,3 +75,5 @@ const modalTitle = document.getElementById("modalTitle");
 const modalDescription = document.getElementById("modalDescription");
 const modalStatus = document.getElementById("modalStatus");
 const saveTaskBtn = document.getElementById("saveTask");
+
+let currentTaskDiv = null;
