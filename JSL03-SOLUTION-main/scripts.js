@@ -87,3 +87,12 @@ document.querySelectorAll(".task-div").forEach((div) => {
 
 function openModal(taskDiv) {
   currentTaskDiv = taskDiv;
+
+  // Use placeholder content for now since task objects aren't bound
+  modalTitle.value = taskDiv.textContent.trim(); // Just demo: treat as title
+  modalDescription.value = "Edit description here...";
+  modalStatus.value = taskDiv.closest(".column-div").dataset.status;
+
+  modal.style.display = "block";
+}
+
