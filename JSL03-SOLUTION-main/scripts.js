@@ -165,3 +165,5 @@ window.addEventListener("click", (e) => {
   if (e.target === modal) closeModal();
 });
 saveTaskBtn.addEventListener("click", saveTask);
+
+renderTasks();
