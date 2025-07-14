@@ -67,3 +67,11 @@ const getCompletedTasks = () =>
 // Display tasks in the console
 console.log("All tasks: ", initialTasks);
 console.log("Completed tasks: ", getCompletedTasks());
+
+// Get modal elements
+const modal = document.getElementById("taskModal");
+const closeModalBtn = document.getElementById("closeModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const modalStatus = document.getElementById("modalStatus");
+const saveTaskBtn = document.getElementById("saveTask");
