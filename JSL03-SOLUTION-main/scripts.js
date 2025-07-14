@@ -96,3 +96,7 @@ function openModal(taskDiv) {
   modal.style.display = "block";
 }
 
+function closeModal() {
+  modal.style.display = "none";
+  currentTaskDiv = null;
+}
