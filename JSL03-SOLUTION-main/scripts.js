@@ -114,3 +114,10 @@ function saveTask() {
 
   closeModal();
 }
+
+// Events
+closeModalBtn.addEventListener("click", closeModal);
+window.addEventListener("click", (e) => {
+  if (e.target === modal) closeModal();
+});
+saveTaskBtn.addEventListener("click", saveTask);
