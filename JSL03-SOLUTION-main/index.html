@@ -94,8 +94,11 @@
 <div id="taskModal" class="modal">
   <div class="modal-content">
     <span id="closeModal" class="close">&times;</span>
-    <h3>Edit Task</h3>
-    <input type="text" id="modalTitle" placeholder="Task Title" /><br /><br />
+    <div class="modal-header">
+  <h2 class="modal-title">Task</h2>
+  <span id="closeModal" class="close">&times;</span>
+</div>
+
     <textarea id="modalDescription" placeholder="Task Description"></textarea><br /><br />
     <select id="modalStatus">
       <option value="todo">To Do</option>
