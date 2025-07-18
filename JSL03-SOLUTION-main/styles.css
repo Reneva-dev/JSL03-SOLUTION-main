@@ -407,3 +407,10 @@ textarea {
 .modal-footer button:hover {
   background-color: #5853c3;
 }
+
+.close {
+  color: red;
+  cursor: pointer; /* optional: shows pointer cursor on hover */
+  font-size: 24px; /* adjust size if needed */
+  font-weight: bold; /* makes it bolder */
+}
