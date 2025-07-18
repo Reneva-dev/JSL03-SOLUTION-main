@@ -90,24 +90,32 @@
       </div>
     </div>
 
-    <!-- Modal for Viewing/Editing a Task -->
-<div id="taskModal" class="modal">
+<!-- Modal for Viewing/Editing a Task -->
+<div id="taskModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-content">
-    <span id="closeModal" class="close">&times;</span>
+    <div class="modal-header">
+      <h3 class="modal-title" id="modalTitle">Edit Task</h3>
+      <button id="closeModal" class="close" aria-label="Close modal">&times;</button>
+    </div>
 
-    <label for="modalTitle">Title</label>
-    <input type="text" id="modalTitle" />
+    <div class="modal-body">
+      <label for="modalTaskTitle">Title</label>
+      <input type="text" id="modalTaskTitle" name="modalTaskTitle" placeholder="Task title" />
 
-    <label for="modalDescription">Description</label>
-    <textarea id="modalDescription" placeholder="Task Description"></textarea>
+      <label for="modalDescription">Description</label>
+      <textarea id="modalDescription" name="modalDescription" placeholder="Task description"></textarea>
 
-    <label for="modalStatus">Status</label>
-    <select id="modalStatus">
-      <option value="todo">To Do</option>
-      <option value="doing">Doing</option>
-      <option value="done">Done</option>
-    </select>
+      <label for="modalStatus">Status</label>
+      <select id="modalStatus" name="modalStatus">
+        <option value="todo">To Do</option>
+        <option value="doing">Doing</option>
+        <option value="done">Done</option>
+      </select>
+    </div>
 
-    <button id="saveTask">Save</button>
+    <div class="modal-footer">
+      <button id="saveTask" type="button">Save</button>
+    </div>
   </div>
 </div>
+
