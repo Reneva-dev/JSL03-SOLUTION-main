@@ -94,29 +94,20 @@
 <div id="taskModal" class="modal">
   <div class="modal-content">
     <span id="closeModal" class="close">&times;</span>
-    <div class="modal-header">
-  <h2 class="modal-title">Task</h2>
-  <span id="closeModal" class="close">&times;</span>
-</div>
 
-<label for="modalTitle">Title</label>
-<input type="text" id="modalTitle" />
+    <label for="modalTitle">Title</label>
+    <input type="text" id="modalTitle" />
 
-<label for="modalDescription">Description</label>
-<textarea id="modalDescription"></textarea>
+    <label for="modalDescription">Description</label>
+    <textarea id="modalDescription" placeholder="Task Description"></textarea>
 
-<label for="modalStatus">Status</label>
-<select id="modalStatus">...</select>
-
-    <textarea id="modalDescription" placeholder="Task Description"></textarea><br /><br />
+    <label for="modalStatus">Status</label>
     <select id="modalStatus">
       <option value="todo">To Do</option>
       <option value="doing">Doing</option>
       <option value="done">Done</option>
-    </select><br /><br />
+    </select>
+
     <button id="saveTask">Save</button>
   </div>
 </div>
-
-  </body>
-</html>
