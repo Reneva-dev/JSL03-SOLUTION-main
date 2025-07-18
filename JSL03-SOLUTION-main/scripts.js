@@ -20,6 +20,41 @@ const initialTasks = [
   },
 ];
 
+// Adds a new task by asking the user for input.
+// Only allows 'todo', 'doing', or 'done' as status values.
+function addTask() {
+  const taskTitle = prompt("Enter task title:");
+  if (taskTitle === null) return; // User cancelled
+
+  const taskDescription = prompt("Enter task description:");
+  if (taskDescription === null) return; // User cancelled
+
+  let taskStatus = prompt("Enter task status (todo, doing, done):");
+  if (taskStatus === null) return; // User cancelled
+
+  taskStatus = taskStatus.toLowerCase();
+
+  while (
+    taskStatus !== "todo" &&
+    taskStatus !== "doing" &&
+    taskStatus !== "done"
+  ) {
+    alert("Invalid status. Please enter 'todo', 'doing', or 'done'.");
+    taskStatus = prompt("Enter task status (todo, doing, done):");
+    if (taskStatus === null) return; // User cancelled
+    taskStatus = taskStatus.toLowerCase();
+  }
+
+  const newTask = {
+    id: initialTasks.length + 1,
+    title: taskTitle,
+    description: taskDescription,
+    status: taskStatus,
+  };
+
+  initialTasks.push(newTask);
+}
+
 // Keep adding tasks until there are 6 in total
 while (initialTasks.length < 6) {
   addTask();
@@ -32,35 +67,7 @@ if (initialTasks.length === 6) {
   );
 }
 
-// Adds a new task by asking the user for input.
-// Only allows 'todo', 'doing', or 'done' as status values.
-function addTask() {
-  const taskTitle = prompt("Enter task title:");
-  const taskDescription = prompt("Enter task description:");
-  let taskStatus = prompt(
-    "Enter task status (todo, doing, done):"
-  ).toLowerCase();
-
-  while (
-    taskStatus !== "todo" &&
-    taskStatus !== "doing" &&
-    taskStatus !== "done"
-  ) {
-    alert("Invalid status. Please enter 'todo', 'doing', or 'done'.");
-    taskStatus = prompt("Enter task status (todo, doing, done):").toLowerCase();
-  }
-
-  const newTask = {
-    id: initialTasks.length + 1, // Auto-increment ID based on task count
-    title: taskTitle,
-    description: taskDescription,
-    status: taskStatus,
-  };
-
-  initialTasks.push(newTask); // Add the task to the array
-}
-
-// Keep adding tasks until there are 6 in total
+// Get completed tasks helper
 const getCompletedTasks = () =>
   initialTasks.filter((task) => task.status === "done");
 
@@ -80,12 +87,12 @@ let currentTaskDiv = null;
 
 function renderTasks() {
   // Clear all task containers first
-  document.querySelectorAll(".tasks-container").forEach(container => {
+  document.querySelectorAll(".tasks-container").forEach((container) => {
     container.innerHTML = "";
   });
 
   // Loop over initialTasks and create a task div for each
-  initialTasks.forEach(task => {
+  initialTasks.forEach((task) => {
     const taskDiv = document.createElement("div");
     taskDiv.classList.add("task-div");
     taskDiv.textContent = task.title;
@@ -97,7 +104,9 @@ function renderTasks() {
     taskDiv.addEventListener("click", () => openModal(taskDiv));
 
     // Append to the correct column based on task.status
-    const column = document.querySelector(`.column-div[data-status="${task.status}"] .tasks-container`);
+    const column = document.querySelector(
+      `.column-div[data-status="${task.status}"] .tasks-container`
+    );
     if (column) {
       column.appendChild(taskDiv);
     }
@@ -108,21 +117,22 @@ function renderTasks() {
 
 function updateColumnCounts() {
   const statuses = ["todo", "doing", "done"];
-  statuses.forEach(status => {
-    const count = initialTasks.filter(task => task.status === status).length;
-    const header = document.querySelector(`.column-div[data-status="${status}"] .columnHeader`);
+  statuses.forEach((status) => {
+    const count = initialTasks.filter((task) => task.status === status).length;
+    const header = document.querySelector(
+      `.column-div[data-status="${status}"] .columnHeader`
+    );
     if (header) {
       header.textContent = `${status.toUpperCase()} (${count})`;
     }
   });
 }
 
-
 function openModal(taskDiv) {
   currentTaskDiv = taskDiv;
 
   const taskId = parseInt(taskDiv.dataset.taskId);
-  const task = initialTasks.find(t => t.id === taskId);
+  const task = initialTasks.find((t) => t.id === taskId);
 
   if (!task) return;
 
@@ -133,7 +143,6 @@ function openModal(taskDiv) {
   modal.style.display = "flex";
 }
 
-
 function closeModal() {
   modal.style.display = "none";
   currentTaskDiv = null;
@@ -143,7 +152,7 @@ function saveTask() {
   if (!currentTaskDiv) return;
 
   const taskId = parseInt(currentTaskDiv.dataset.taskId);
-  const task = initialTasks.find(t => t.id === taskId);
+  const task = initialTasks.find((t) => t.id === taskId);
 
   if (!task) return;
 
@@ -157,7 +166,6 @@ function saveTask() {
 
   closeModal();
 }
-
 
 // Events
 closeModalBtn.addEventListener("click", closeModal);
