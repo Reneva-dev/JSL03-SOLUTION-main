@@ -130,7 +130,7 @@ function openModal(taskDiv) {
   modalDescription.value = task.description;
   modalStatus.value = task.status;
 
-  modal.style.display = "block";
+  modal.style.display = "flex";
 }
 
 
