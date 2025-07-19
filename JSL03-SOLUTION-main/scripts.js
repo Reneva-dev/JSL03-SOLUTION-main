@@ -22,7 +22,6 @@ const initialTasks = [
 
 let isEditing = false;
 
-
 // Get modal elements with correct IDs
 const modal = document.getElementById("taskModal");
 const closeModalBtn = document.getElementById("closeModal");
@@ -86,13 +85,13 @@ function openModal(taskDiv = null) {
 
     if (!task) return;
 
-    modalTitle.value = task.title;
+    modalTitleInput.value = task.title;
     modalDescription.value = task.description;
     modalStatus.value = task.status;
   } else {
     isEditing = false;
     currentTaskDiv = null;
-    modalTitle.value = "";
+    modalTitleInput.value = "";
     modalDescription.value = "";
     modalStatus.value = "todo";
   }
@@ -100,8 +99,14 @@ function openModal(taskDiv = null) {
   modal.style.display = "flex";
 }
 
+function closeModal() {
+  modal.style.display = "none";
+  currentTaskDiv = null;
+  isEditing = false;
+}
+
 function saveTask() {
-  const title = modalTitle.value.trim();
+  const title = modalTitleInput.value.trim();
   const description = modalDescription.value.trim();
   const status = modalStatus.value;
 
@@ -129,16 +134,18 @@ function saveTask() {
   closeModal();
 }
 
-
 // Events
-closeModalBtn.addEventListener("click", closeModal);
+if (closeModalBtn) closeModalBtn.addEventListener("click", closeModal);
 window.addEventListener("click", (e) => {
   if (e.target === modal) closeModal();
 });
-saveTaskBtn.addEventListener("click", saveTask);
+if (saveTaskBtn) saveTaskBtn.addEventListener("click", saveTask);
+
+const addTaskBtn = document.getElementById("addTaskBtn");
+if (addTaskBtn) {
+  addTaskBtn.addEventListener("click", () => openModal());
+}
 
 renderTasks();
 
-const addTaskBtn = document.getElementById("addTaskBtn");
-addTaskBtn.addEventListener("click", () => openModal());
 
