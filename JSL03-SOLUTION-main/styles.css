@@ -383,6 +383,7 @@ h2 {
   font-family: inherit;
   font-size: 1rem;
   resize: vertical;
+  font-weight: 700;
 }
 
 textarea {
