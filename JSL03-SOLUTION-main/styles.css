@@ -381,7 +381,7 @@ h2 {
   background-color: var(--secondary-color);
   color: var(--primary-font-color);
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 0.9rem;
   resize: vertical;
   font-weight: 700;
 }
