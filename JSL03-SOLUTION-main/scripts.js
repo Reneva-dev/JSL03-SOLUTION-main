@@ -100,29 +100,35 @@ function openModal(taskDiv = null) {
   modal.style.display = "flex";
 }
 
-
-function closeModal() {
-  modal.style.display = "none";
-  currentTaskDiv = null;
-}
-
 function saveTask() {
-  if (!currentTaskDiv) return;
+  const title = modalTitle.value.trim();
+  const description = modalDescription.value.trim();
+  const status = modalStatus.value;
 
-  const taskId = parseInt(currentTaskDiv.dataset.taskId);
-  const task = initialTasks.find((t) => t.id === taskId);
+  if (!title || !description || !status) return;
 
-  if (!task) return;
+  if (isEditing && currentTaskDiv) {
+    const taskId = parseInt(currentTaskDiv.dataset.taskId);
+    const task = initialTasks.find((t) => t.id === taskId);
+    if (!task) return;
 
-  // Update the task data from modal inputs
-  task.title = modalTitleInput.value.trim();
-  task.description = modalDescription.value.trim();
-  task.status = modalStatus.value;
+    task.title = title;
+    task.description = description;
+    task.status = status;
+  } else {
+    const newTask = {
+      id: initialTasks.length + 1,
+      title,
+      description,
+      status,
+    };
+    initialTasks.push(newTask);
+  }
 
   renderTasks();
-
   closeModal();
 }
+
 
 // Events
 closeModalBtn.addEventListener("click", closeModal);
