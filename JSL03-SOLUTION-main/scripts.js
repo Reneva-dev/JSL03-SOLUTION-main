@@ -20,6 +20,9 @@ const initialTasks = [
   },
 ];
 
+let isEditing = false;
+
+
 // Get modal elements with correct IDs
 const modal = document.getElementById("taskModal");
 const closeModalBtn = document.getElementById("closeModal");
