@@ -20,65 +20,10 @@ const initialTasks = [
   },
 ];
 
-// Adds a new task by asking the user for input.
-// Only allows 'todo', 'doing', or 'done' as status values.
-function addTask() {
-  const taskTitle = prompt("Enter task title:");
-  if (taskTitle === null) return; // User cancelled
-
-  const taskDescription = prompt("Enter task description:");
-  if (taskDescription === null) return; // User cancelled
-
-  let taskStatus = prompt("Enter task status (todo, doing, done):");
-  if (taskStatus === null) return; // User cancelled
-
-  taskStatus = taskStatus.toLowerCase();
-
-  while (
-    taskStatus !== "todo" &&
-    taskStatus !== "doing" &&
-    taskStatus !== "done"
-  ) {
-    alert("Invalid status. Please enter 'todo', 'doing', or 'done'.");
-    taskStatus = prompt("Enter task status (todo, doing, done):");
-    if (taskStatus === null) return; // User cancelled
-    taskStatus = taskStatus.toLowerCase();
-  }
-
-  const newTask = {
-    id: initialTasks.length + 1,
-    title: taskTitle,
-    description: taskDescription,
-    status: taskStatus,
-  };
-
-  initialTasks.push(newTask);
-}
-
-// Keep adding tasks until there are 6 in total
-while (initialTasks.length < 6) {
-  addTask();
-}
-
-// Alert user when task board is full
-if (initialTasks.length === 6) {
-  alert(
-    "There are enough tasks on your board, please check them in the console."
-  );
-}
-
-// Get completed tasks helper
-const getCompletedTasks = () =>
-  initialTasks.filter((task) => task.status === "done");
-
-// Display tasks in the console
-console.log("All tasks: ", initialTasks);
-console.log("Completed tasks: ", getCompletedTasks());
-
-// Get modal elements
+// Get modal elements with correct IDs
 const modal = document.getElementById("taskModal");
 const closeModalBtn = document.getElementById("closeModal");
-const modalTitle = document.getElementById("modalTitle");
+const modalTitleInput = document.getElementById("modalTaskTitle");
 const modalDescription = document.getElementById("modalDescription");
 const modalStatus = document.getElementById("modalStatus");
 const saveTaskBtn = document.getElementById("saveTask");
@@ -136,7 +81,7 @@ function openModal(taskDiv) {
 
   if (!task) return;
 
-  modalTitle.value = task.title;
+  modalTitleInput.value = task.title;
   modalDescription.value = task.description;
   modalStatus.value = task.status;
 
@@ -157,11 +102,10 @@ function saveTask() {
   if (!task) return;
 
   // Update the task data from modal inputs
-  task.title = modalTitle.value.trim();
+  task.title = modalTitleInput.value.trim();
   task.description = modalDescription.value.trim();
   task.status = modalStatus.value;
 
-  // Re-render tasks to update the DOM based on updated data
   renderTasks();
 
   closeModal();
