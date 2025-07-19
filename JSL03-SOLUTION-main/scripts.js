@@ -76,20 +76,30 @@ function updateColumnCounts() {
   });
 }
 
-function openModal(taskDiv) {
-  currentTaskDiv = taskDiv;
+function openModal(taskDiv = null) {
+  if (taskDiv) {
+    isEditing = true;
+    currentTaskDiv = taskDiv;
 
-  const taskId = parseInt(taskDiv.dataset.taskId);
-  const task = initialTasks.find((t) => t.id === taskId);
+    const taskId = parseInt(taskDiv.dataset.taskId);
+    const task = initialTasks.find((t) => t.id === taskId);
 
-  if (!task) return;
+    if (!task) return;
 
-  modalTitleInput.value = task.title;
-  modalDescription.value = task.description;
-  modalStatus.value = task.status;
+    modalTitle.value = task.title;
+    modalDescription.value = task.description;
+    modalStatus.value = task.status;
+  } else {
+    isEditing = false;
+    currentTaskDiv = null;
+    modalTitle.value = "";
+    modalDescription.value = "";
+    modalStatus.value = "todo";
+  }
 
   modal.style.display = "flex";
 }
+
 
 function closeModal() {
   modal.style.display = "none";
