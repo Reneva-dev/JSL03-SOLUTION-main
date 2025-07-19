@@ -138,3 +138,7 @@ window.addEventListener("click", (e) => {
 saveTaskBtn.addEventListener("click", saveTask);
 
 renderTasks();
+
+const addTaskBtn = document.getElementById("addTaskBtn");
+addTaskBtn.addEventListener("click", () => openModal());
+
