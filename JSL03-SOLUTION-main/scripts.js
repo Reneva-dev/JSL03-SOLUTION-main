@@ -205,6 +205,7 @@ if (addTaskBtn) {
   addTaskBtn.addEventListener("click", () => openModal());
 }
 
+// Initial render
 renderTasks();
 
 
