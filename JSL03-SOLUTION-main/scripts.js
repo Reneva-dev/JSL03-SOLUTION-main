@@ -160,6 +160,10 @@ function closeModal() {
   isEditing = false;
 }
 
+/**
+ * Saves a task based on modal input.
+ * Updates an existing task if in edit mode, otherwise creates a new one.
+ */
 function saveTask() {
   const title = modalTitleInput.value.trim();
   const description = modalDescription.value.trim();
