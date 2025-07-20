@@ -150,6 +150,10 @@ function openModal(taskDiv = null) {
   modal.style.display = "flex";
 }
 
+
+/**
+ * Closes the task modal and resets state variables.
+ */
 function closeModal() {
   modal.style.display = "none";
   currentTaskDiv = null;
