@@ -1,15 +1,11 @@
-🗂️ Kanban — Your Productivity App
-📌 Project Description
+Kanban — Your Productivity App
+Project Description
 Kanban is a responsive and user-friendly task management application built with vanilla JavaScript, HTML, and CSS. It helps users organize their daily tasks visually and efficiently using the Kanban method.
 
 Recent updates introduce a sleek modal-based form for task input and editing, eliminating the need for prompt dialogs. The app offers real-time updates, interactive task editing, and a smooth user experience optimized for both desktop and mobile.
 
-🚀 Technologies Used
-HTML5
-
-CSS3
-
-JavaScript (ES6+)
+Technologies Used
+HTML5, CSS3 and JavaScript (ES6+)
 
 [Optional: Local Storage API — if re-enabled]
 
@@ -23,7 +19,7 @@ JavaScript (ES6+)
 ✅ Validation ensures all fields are filled before saving
 ✅ Hover effects and button interactions for an enhanced UX
 
-🛠️ Setup Instructions
+1. Setup Instructions
 To run this project locally:
 
 Clone the repository
@@ -46,7 +42,7 @@ Use a tool like Live Server in VS Code
 
 📌 No installation is needed — the app runs entirely in the browser.
 
-💡 Usage Instructions
+2. Usage Instructions
 Click the Add Task button to open the modal.
 
 Fill in the title, description, and select a status (todo, doing, or done).
@@ -57,9 +53,9 @@ Click on an existing task to edit it in the same modal.
 
 Use the ❌ in the corner or click outside the modal to cancel.
 
-⚠️ The app no longer uses prompt dialogs — all interactions are now handled through the modal for a better user experience.
+The app no longer uses prompt dialogs — all interactions are now handled through the modal for a better user experience.
 
-🎮 Interaction Overview
+3. Interaction Overview
 All task management is done via the modal interface — no browser alerts or prompts.
 
 Task columns automatically update to reflect new or edited tasks.
