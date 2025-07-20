@@ -102,6 +102,9 @@ function renderTasks() {
 
   updateColumnCounts();
 }
+/**
+ * Updates the task count in each column header (TODO, DOING, DONE).
+ */
 
 function updateColumnCounts() {
   const statuses = ["todo", "doing", "done"];
