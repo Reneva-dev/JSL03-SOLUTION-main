@@ -69,6 +69,10 @@ const saveTaskBtn = document.getElementById("saveTask");
 
 let currentTaskDiv = null;
 
+/**
+ * Renders all tasks to their corresponding columns (todo, doing, done).
+ * Clears existing DOM content and repopulates from `initialTasks`.
+ */
 function renderTasks() {
   // Clear all task containers first
   document.querySelectorAll(".tasks-container").forEach((container) => {
