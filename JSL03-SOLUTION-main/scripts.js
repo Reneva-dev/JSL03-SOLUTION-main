@@ -58,6 +58,7 @@ const initialTasks = [
 
 let isEditing = false;
 
+// DOM element references
 // Get modal elements with correct IDs
 const modal = document.getElementById("taskModal");
 const closeModalBtn = document.getElementById("closeModal");
