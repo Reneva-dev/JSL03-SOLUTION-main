@@ -119,6 +119,13 @@ function updateColumnCounts() {
   });
 }
 
+
+/**
+ * Opens the task modal for creating or editing a task.
+ * If a task is passed, populates the modal fields for editing.
+ *
+ * @param {HTMLElement|null} taskDiv - The task element being edited (optional).
+ */
 function openModal(taskDiv = null) {
   if (taskDiv) {
     isEditing = true;
