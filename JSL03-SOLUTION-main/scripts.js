@@ -1,50 +1,50 @@
 const initialTasks = [
   {
     id: 1,
-    title: "Launch Epic Career",
+    title: "Launch Epic Career🚀",
     description: "Create a killer Resume",
     status: "todo",
   },
   {
     id: 1,
-    title: "Conquer React",
+    title: "Conquer React⚛️",
     description: "Create a killer Resume",
     status: "todo",
   },
   {
     id: 1,
-    title: "Understand Databases",
+    title: "Understand Databases⚙️",
     description: "Create a killer Resume",
     status: "todo",
   },
-  {
+    {
     id: 1,
-    title: "Crush Frameworks",
+    title: "Crush Frameworks🖼️",
     description: "Create a killer Resume",
     status: "todo",
   },
   {
     id: 2,
-    title: "Master JavaScript",
+    title: "Master JavaScript💛",
     description: "Get comfortable with the fundamentals",
     status: "doing",
   },
   {
     id: 2,
-    title: "Never Give Up",
+    title: "Never Give Up🏆",
     description: "Get comfortable with the fundamentals",
     status: "doing",
   },
   {
     id: 3,
-    title: "Explore ES6 Features",
+    title: "Explore ES6 Features🚀",
     description:
       "Gain practical experience and collaborate with others in the software development community",
     status: "done",
   },
   {
     id: 3,
-    title: "Have fun",
+    title: "Have fun🥳",
     description:
       "Gain practical experience and collaborate with others in the software development community",
     status: "done",
