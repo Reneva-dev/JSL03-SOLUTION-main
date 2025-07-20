@@ -1,3 +1,8 @@
+/**
+ * Initial set of predefined tasks.
+ * Each task has a unique ID, title, description, and status.
+ * @type {Array<{id: number, title: string, description: string, status: string}>}
+ */
 const initialTasks = [
   {
     id: 1,
