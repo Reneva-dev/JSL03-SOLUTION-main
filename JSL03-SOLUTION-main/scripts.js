@@ -6,14 +6,45 @@ const initialTasks = [
     status: "todo",
   },
   {
+    id: 1,
+    title: "Conquer React",
+    description: "Create a killer Resume",
+    status: "todo",
+  },
+  {
+    id: 1,
+    title: "Understand Databases",
+    description: "Create a killer Resume",
+    status: "todo",
+  },
+  {
+    id: 1,
+    title: "Crush Frameworks",
+    description: "Create a killer Resume",
+    status: "todo",
+  },
+  {
     id: 2,
     title: "Master JavaScript",
     description: "Get comfortable with the fundamentals",
     status: "doing",
   },
   {
+    id: 2,
+    title: "Never Give Up",
+    description: "Get comfortable with the fundamentals",
+    status: "doing",
+  },
+  {
     id: 3,
-    title: "Contribute to Open Source Projects",
+    title: "Explore ES6 Features",
+    description:
+      "Gain practical experience and collaborate with others in the software development community",
+    status: "done",
+  },
+  {
+    id: 3,
+    title: "Have fun",
     description:
       "Gain practical experience and collaborate with others in the software development community",
     status: "done",
